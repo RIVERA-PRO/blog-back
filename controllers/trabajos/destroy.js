@@ -1,20 +1,20 @@
-import Publicacion from "../../models/Publicacion.js";
+import Trabajo from "../../models/Trabajos.js";
 
 const destroyP = {
     destroy: async (req, res, next) => {
         try {
-            let publicacion = await Publicacion.findOneAndDelete(
+            let trabajo = await Trabajo.findOneAndDelete(
                 { _id: req.params.id }
             );
-            if (publicacion) {
+            if (trabajo) {
                 return res.status(200).json({
                     success: true,
-                    message: "Publicacion eliminada",
+                    message: "trabajo eliminado",
                 });
             } else {
                 return res.status(404).json({
                     success: false,
-                    message: "Publicacion not found",
+                    message: "trabajo not found",
                 });
             }
         } catch (error) {

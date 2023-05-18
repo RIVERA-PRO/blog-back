@@ -16,7 +16,7 @@ const { destroy } = destroyP
 const { update } = updateP
 const { read } = todos
 
-router.post('/', passport.authenticate("jwt", { session: false }), validator(destinoSchemas), exist_publicacion, create)
+router.post('/', passport.authenticate("jwt", { session: false }), validator(destinoSchemas), create)
 
 router.get('/', read)
 router.get('/:id', getOne)

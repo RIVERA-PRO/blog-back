@@ -1,10 +1,11 @@
-import Publicacion from "../../models/Publicacion.js";
+import Trabajos from "../../models/Trabajos.js";
 import User from "../../models/User.js";
 
-const publicaciones = {
+const trabajoos = {
     create: async (req, res, next) => {
         try {
-            const { likes, cover_photo, mail, photo, name, title, categoria, description, user_id } = req.body;
+            const { jornada, modalidad, requisitos, telefono, web, instagram, facebook, mail, photo, name, title, cover_photo, categoria, description, ubicacion, salario, vacantes, lugar, seller_id, category_id, user_id } = req.body;
+
             const user = await User.findById(user_id); // encuentra el usuario por su id
 
             if (!user) {
@@ -14,15 +15,28 @@ const publicaciones = {
                 });
             }
 
-            const publicacion = await Publicacion.create({
-                likes,
+            const trabajo = await Trabajos.create({
+
+                modalidad,
+                jornada,
+                requisitos,
                 title,
                 cover_photo,
                 description,
                 categoria,
+                ubicacion,
+                lugar,
+                salario,
+                vacantes,
+                seller_id,
+                category_id,
                 name,
                 photo,
                 mail,
+                telefono,
+                web,
+                instagram,
+                facebook,
                 user_id: req.user._id // Agregar el user_id aquí
             });
 
@@ -30,8 +44,8 @@ const publicaciones = {
 
             return res.status(201).json({
                 success: true,
-                message: "Publicacion creada",
-                publicacion,
+                message: "Trabajo creado",
+                trabajo,
             });
         } catch (err) {
             next(err);
@@ -39,4 +53,4 @@ const publicaciones = {
     },
 };
 
-export default publicaciones;
+export default trabajoos;

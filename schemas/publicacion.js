@@ -1,6 +1,8 @@
 import Joi from 'joi-oid';
 
 const schema = Joi.object({
+    likes: Joi
+        .number(),
 
     photo: Joi
         .string()

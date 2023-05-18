@@ -11,13 +11,14 @@ let schema = new mongoose.Schema(
     cover_photo: { type: String, required: true },
     description: { type: String, required: true },
     categoria: { type: String, required: true },
+    likes: { type: Number, required: false, }
 
   }, {
   timestamps: true
 }
 
 );
-let Destino = mongoose.model("destinos", schema);
+let Destino = mongoose.model("publicacion", schema);
 export default Destino;
 
 

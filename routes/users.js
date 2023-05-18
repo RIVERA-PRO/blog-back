@@ -10,12 +10,16 @@ import accountHasBeenVerified from '../middlewares/accountHasBeenVerified.js'
 import passwordIsOk from '../middlewares/passwordIsOk.js'
 import passport from '../middlewares/passport.js'
 import getOneUser from '../controllers/getOneUser.js'
+import getAllUsers from '../controllers/getAllUsers.js';
+import editUser from '../controllers/editUser.js';
 
 
 const { verify } = controllerVerify
 const { sign_up, sign_in, sign_out, token } = controller
 const { get_one } = getOneUser
 let router = express.Router();
+router.get('/', getAllUsers.get_all);
+router.put('/:id', editUser.edit);
 
 router.post('/signup', validator(schemaSignUp), accountExistsSignUp, sign_up)
 router.post('/signin', validator(schemaSignIn), accountExistsSignIn, accountHasBeenVerified, passwordIsOk, sign_in)

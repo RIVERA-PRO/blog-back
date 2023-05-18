@@ -50,6 +50,17 @@ const schema = Joi.object({
                 'any.required': 'Se requiere una foto',
                 'string.uri': 'Se necesita una URL válida'
             }
+        ),
+    cv: Joi
+        .string()
+        .min(8)
+        .uri()
+        .messages(
+            {
+                'string.min': 'El CV debe tener al menos 8 caracteres',
+                'string.empty': 'El CV no puede estar vacío',
+                'string.uri': 'Se necesita una URL válida'
+            }
         )
 })
 

@@ -5,6 +5,9 @@ import jwt from "jsonwebtoken";
 
 const controller = {
   sign_up: async (req, res, next) => {
+    req.body.profile = "";
+    req.body.cv = "";
+    req.body.seguidores = 0;
     req.body.is_online = false;
     req.body.is_seller = true;
     req.body.is_admin = false;
