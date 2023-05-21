@@ -5,7 +5,7 @@ const editUser = {
     edit: async (req, res) => {
         try {
             const { id } = req.params;
-            const { cv, password, photo, name, email, profile, seguidores } = req.body;
+            const { banner, cv, password, photo, name, email, profile, seguidores } = req.body;
 
             // Verificar si el usuario existe
             let user = await User.findById(id);
@@ -16,13 +16,28 @@ const editUser = {
                 });
             }
 
-            // Actualizar los datos del usuario
-            user.name = name;
-            user.photo = photo;
-            user.cv = cv;
-            user.email = email;
-            user.profile = profile;
-            user.seguidores = seguidores;
+            // Actualizar los datos del usuario si se proporcionan
+            if (name) {
+                user.name = name;
+            }
+            if (photo) {
+                user.photo = photo;
+            }
+            if (cv) {
+                user.cv = cv;
+            }
+            if (email) {
+                user.email = email;
+            }
+            if (profile) {
+                user.profile = profile;
+            }
+            if (seguidores) {
+                user.seguidores = seguidores;
+            }
+            if (banner) {
+                user.banner = banner;
+            }
 
             // Verificar si se proporcionó una nueva contraseña
             if (password) {

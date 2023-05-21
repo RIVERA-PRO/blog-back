@@ -16,7 +16,7 @@ const { destroy } = destroys
 
 router.post('/', passport.authenticate('jwt', { session: false }), validator(schema), create);
 
-router.get('/', passport.authenticate('jwt', { session: false }), all_from_chapter);
+router.get('/', all_from_chapter);
 
 router.put("/:id", passport.authenticate("jwt", { session: false }), validator(schema), is_propery_of_, update);
 

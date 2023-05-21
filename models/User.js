@@ -7,6 +7,7 @@ const schema = mongoose.Schema({
     photo: { type: String, required: false },
     profile: { type: String, required: false },
     cv: { type: String, required: false },
+    banner: { type: String, required: false },
     seguidores: { type: Number, required: false },
     is_online: { type: Boolean, required: false },
     is_seller: { type: Boolean, required: false },

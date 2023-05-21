@@ -20,7 +20,7 @@ const controller = {
 
         try {
 
-            let comments = await Comment.find({ chapter_id: req.query.publicacion_id }).select('text user_id').populate('user_id', 'name photo ')
+            let comments = await Comment.find({ chapter_id: req.query.publicacion_id }).select('text user_id publicacion_id createdAt').populate('user_id', 'name photo ')
 
             if (comments) {
                 return res.status(200).json({

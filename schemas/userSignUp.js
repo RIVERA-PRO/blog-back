@@ -61,6 +61,17 @@ const schema = Joi.object({
                 'string.empty': 'El CV no puede estar vacío',
                 'string.uri': 'Se necesita una URL válida'
             }
+        ),
+    banner: Joi
+        .string()
+        .min(8)
+        .uri()
+        .messages(
+            {
+                'string.min': 'El CV debe tener al menos 8 caracteres',
+                'string.empty': 'El Banner no puede estar vacío',
+                'string.uri': 'Se necesita una URL válida'
+            }
         )
 })
 
