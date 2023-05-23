@@ -109,10 +109,7 @@ const schema = Joi.object({
             "string.max": "El lugar debe tener como máximo 500 caracteres",
             'string.required': 'El lugar es obligatorio',
         }),
-    cover_photo: Joi
-        .string()
-        .uri()
-        .required(),
+
     categoria: Joi
 
         .required()

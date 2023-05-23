@@ -10,7 +10,6 @@ let schema = new mongoose.Schema(
         title: { type: String, required: true },
         lugar: { type: String, required: true },
         ubicacion: { type: String, required: true },
-        cover_photo: { type: String, required: true },
         description: { type: String, required: true },
         requisitos: { type: String, required: true },
         categoria: { type: String, required: true },

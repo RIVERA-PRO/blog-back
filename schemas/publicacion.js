@@ -44,8 +44,8 @@ const schema = Joi.object({
 
     cover_photo: Joi
         .string()
-        .uri()
-        .required(),
+        .min(0)
+        .max(1000),
     description: Joi
         .string()
         .required()

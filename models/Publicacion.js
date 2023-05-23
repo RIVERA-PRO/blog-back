@@ -8,7 +8,7 @@ let schema = new mongoose.Schema(
     mail: { type: String, required: false, ref: "user" },
     photo: { type: String, required: false, ref: "user" },
     title: { type: String, required: true },
-    cover_photo: { type: String, required: true },
+    cover_photo: { type: String, required: false },
     description: { type: String, required: true },
     categoria: { type: String, required: true },
     likes: { type: Number, required: false, }
